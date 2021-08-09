@@ -1,0 +1,46 @@
+#c-section {
+    background-color: #919191;
+    color: white;
+    font-family: Myriad Pro;
+    font-size: 1.2em;
+    height: 6.65em;
+}
+
+#section {
+    font-family: Montserrat;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #504e4d;
+}
+
+.class-data {
+    font-family: Montserrat;
+    font-size: 0.9em;
+    color: #939393;
+}
+
+.rounded-card-right {
+    border-top-right-radius: 0.9em !important;
+    border-bottom-right-radius: 0.9em !important;
+    border-top-left-radius: 0.9em !important;
+    border-bottom-left-radius: 0.9em !important;
+}
+
+.rounded-card-left {
+    border-top-left-radius: 0.9em !important;
+    border-bottom-left-radius: 0.9em !important;
+}
+
+.class-card {
+    position: relative;
+    height: 8em;
+    transition: top ease 0.5s;
+}
+
+.class-card:hover {
+    #c-section {
+        background-color: #8f267b;
+    }
+    top: -10px;
+    box-shadow: 0px 3px 34px 0 rgba(135, 135, 135, 0.35);
+}

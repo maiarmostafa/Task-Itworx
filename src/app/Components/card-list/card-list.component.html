@@ -1,0 +1,13 @@
+<div *ngFor="let school of schoolItems;let i=index;">
+    <div *ngFor="let item of school.classItems; let j=index;" class="row m-0  mt-5  rounded-card-right bg-white class-card">
+        <div class="col-1 rounded-card-left d-flex justify-content-center" id="c-section">
+            <p class="mt-2">C.{{getPosition(i,j)}}</p>
+        </div>
+        <div class="col-10 m-3">
+            <p id="section" class="m-0">{{item.className}}</p>
+            <p class="class-data m-0"> School: {{school.schoolName}}</p>
+            <p class="class-data m-0">Grade: {{item.grade}}</p>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+
+.text-format{
+    cursor: pointer;
+}
+.text-color{
+    color: #724a91;
+}
+.add-button{
+    cursor: pointer;
+}
+input.ng-invalid.ng-touched {
+    border:1px solid red;    
+}
+.disabled{
+    color: grey !important;
+    cursor: default !important;
+    pointer-events: none !important;
+}
+    

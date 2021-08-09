@@ -1,0 +1,26 @@
+#nav{
+    background-color: #630b59;
+}
+.nav-active-custom , .div-custom{ 
+    background-color: #823C7A;
+}
+.div-custom-2{
+    background-color: #73246A;
+}
+.nav-active-custom{
+    border-radius: 3rem;
+}
+.div-custom , .div-custom-2{
+    border-end-end-radius: 3rem;
+    border-start-end-radius: 3rem;
+    padding-right: 2rem;
+}
+.div-custom-2{
+    width: 47%;
+}
+.div-custom{
+    width: 41%;
+}
+.div-custom p{
+    font-size: 2rem;
+}

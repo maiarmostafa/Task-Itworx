@@ -1,0 +1,80 @@
+<div class="bg-white row m-0 h-100 mt-5 border border-secondary">
+    <form class="ml-5 mb-5 col-md-12" [formGroup]="schoolDetails" (ngSubmit)="onSubmit()">
+        <!-- Add dropdown menu for School List -->
+        <div class="row">
+            <div class="form-group offset-2 col-6 mt-2 ">
+                <label class="h5 text-secondary" for="inputState">School</label>
+                <select id="inputState" class="form-control" formControlName="school">
+                    <option selected class="disabled">Choose...</option>
+                    <option *ngFor ="let school of schoolList">{{school}}</option>
+                </select>
+            </div>
+        </div>
+        <!--After Choose a school, Loop on schoolArray controls (Section and ClassName and Grade) -->
+        <div *ngIf="schoolDetails.get('school').valid">
+            <div formArrayName="schoolArray"
+                *ngFor="let item of schoolDetails.get('schoolArray')['controls']; let i = index;">
+                <div [formGroupName]="i">
+                    <div class="row mt-5">
+                        <div class="col-lg-2 col-8 mb-5">
+                            <label class="font-weight-bold mb-4" for="inputState">Section(optional)</label>
+                            <input type="text" class="form-control w-50" formControlName="section">
+                        </div>
+
+                        <div class="col-lg-4 col-10 mb-5">
+                            <label class="font-weight-bold mb-4" for="inputState">Class Name</label>
+                            <input type="text" class="form-control w-100" formControlName="className">
+                        </div>
+
+                        <div class="col-lg-3 col-9 mb-5 mr-0">
+                            <label class="h5 text-secondary mb-4" for="inputState">Grade</label>
+                            <select id="inputState" class="form-control " formControlName="grade">
+                                <option selected></option>
+                                <option *ngFor="let grade of grades">{{grade}}</option>    
+                            </select>
+                        </div>
+                        
+                        <!--Delete icon that will delete based on the index of schoolArray-->
+                        <div class="col-1 mb-5 mt-5 ml-4">
+                            <i  class="bi bi-trash text text-danger h5 mt-1 add-button" (click)="deleteRow(i)" [ngClass]="{disabled:schoolArray.length === 1}"></i>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <span class="col-lg-2 col-8  text-secondary"
+                            *ngIf="!schoolDetails.get('schoolArray.section').valid && schoolDetails.get('schoolArray.section').touched ">
+                            please enter right section info
+                        </span>
+                        <span class="col-lg-4 col-8  text-secondary"
+                            *ngIf="!schoolDetails.get('schoolArray.className').valid && schoolDetails.get('schoolArray.className').touched ">
+                            please enter right className info
+                        </span>
+                        <span class="col-lg-3 col-8  text-secondary"
+                            *ngIf="!schoolDetails.get('schoolArray.grade').valid && schoolDetails.get('schoolArray.grade').touched ">
+                            please enter right grade
+                        </span>
+                    </div> -->
+                </div>
+            </div>
+            <!--Add class Row-->
+            <div class="row">
+                <div class="col-md-11 mt-5">
+                    <div class="add-button" (click)="onAddClass()">
+                        <i class="bi bi-plus-circle-fill mr-2 text-color"></i>
+                        <p class="d-inline text-color">Add Class</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <!--Done and Cancel Row-->
+            <div class="row">
+                <div class="offset-lg-9 offset-6 col-lg-3 ">
+                    <p (click)="onSubmit()" class="text-color text-format d-inline mr-5 font-weight-bold">Done</p>
+                    <p (click) = "onCancel()"class="text-format d-inline font-weight-bold">Cancel</p>
+                </div>
+            </div>
+            <span *ngIf="!schoolDetails.valid && schoolDetails.touched " class="text-danger"> 
+                *please fill the form correctly
+            </span>
+        </div>
+    </form>
+</div>
